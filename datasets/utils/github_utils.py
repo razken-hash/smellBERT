@@ -14,6 +14,12 @@ class GithubUtils:
             return f"{raw_url_base}/{owner_and_repository}/{branch}{path}"
         return f"{raw_url_base}/{owner_and_repository}/{commit_hash}{path}"
 
+    def convert_blob_to_raw_url(blob_url: str):
+        if "#" in blob_url:
+            blob_url = blob_url[0:blob_url.rfind("/")]
+        return blob_url.replace(
+            "github.com", "raw.githubusercontent.com").replace("/blob/", "/")
+
     @staticmethod
     def clone_code(raw_url=""):
         try:
