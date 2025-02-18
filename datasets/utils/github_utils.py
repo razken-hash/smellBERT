@@ -25,7 +25,7 @@ class GithubUtils:
         try:
             response = requests.get(raw_url)
             if response.status_code == 200:
-                print(f"{response.status_code}: SUCCESS Code Clone")
+                # print(f"{response.status_code}: SUCCESS Code Clone")
                 return response.text
             else:
                 print(f"{response.status_code}: FAILED Code Clone")
